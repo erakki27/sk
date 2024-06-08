@@ -1,26 +1,35 @@
 package learning;
 
+import java.util.Scanner;
+
 public class ReverseInt {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		String str = "Akanksha";
-		str = str.toLowerCase();
-		 char c = 'a';
-		 System.out.println(countoccurance(str,c));
-		
-}
+		System.out.println("Enter number for reverse");
+           Scanner sc= new Scanner(System.in);
+           int n = sc.nextInt();
+           
+           System.out.println(reverseInt(n));
+
+	}
 	
-	static int countoccurance(String str, char c) {
+	static int reverseInt(int n) {
+		int rem;
 		
-		int occ = 0;
+		long rev=0;
 		
-		for (int i=0;i<str.length();i++) {
-			if(str.charAt(i)== c) 
-				occ++;
+		while(n !=0) {
+		rem = n % 10;
+		rev = (rev*10)+rem;
+		n=n/10;
+		
+		if(rev>Integer.MAX_VALUE || rev<Integer.MIN_VALUE) {
+			return 0;
+			
 		}
-		return occ;
+	}
+		return (int)rev;
 		
 	}
+
 }

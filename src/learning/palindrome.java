@@ -11,7 +11,8 @@ public class palindrome {
 			String str1 = str.toLowerCase();
 			
 			
-			System.out.println("string is palindrome " + palidrome(str1));
+			//System.out.println("string is palindrome " + palidrome(str1));
+			System.out.println("string is palindrome " + method2palindrome(str1));
 		}
 	}
 		
@@ -25,5 +26,18 @@ public class palindrome {
 		 
 		return str1.equals(revesred);
 	}
+	 
+	 static boolean method2palindrome(String str1) {
+		 int i=0;
+		 int j=str1.length()-1;
+		 while(i<j) {
+			 if(str1.charAt(i)!=str1.charAt(j)) 
+				 return false;
+				 i++;
+				 j--;	
+		 }
+		return true;
+		 
+	 }
 
 }

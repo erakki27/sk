@@ -1,6 +1,7 @@
 package learning;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -14,11 +15,12 @@ public class countduplicateinstring {
 		String str1 = sc.nextLine();
 		
 		String str = str1.toLowerCase();
+		str = str.replaceAll("\\s", "");
 		countofduplicate(str);
 
 	}
 static void countofduplicate(String str) {
-	Map <Character, Integer> HM = new HashMap<Character, Integer>();
+	Map <Character, Integer> HM = new LinkedHashMap<Character, Integer>();
 	
 	char[] charArray = str.toCharArray();
 	
@@ -32,10 +34,24 @@ static void countofduplicate(String str) {
 		
 	}
 	for(Map.Entry<Character, Integer> entry : HM.entrySet()) {
-		if(entry.getValue()>1) {
-			System.out.println(entry.getKey() +" : " +entry.getValue());
-			
-		}
+		/*
+		 * //if(entry.getValue()>1) { System.out.println(entry.getKey() +" : "
+		 * +entry.getValue());
+		 * 
+		 * }
+		 */
+		System.out.println(entry.getKey() + " : " +entry.getValue());
+	}
+	
+	for (char c : HM.keySet()) {
+		System.out.println(c +" : " +HM.get(c));
+		//System.out.print(HM.get(c));
+		
+	}
+	
+	for (char c : HM.keySet()) {
+		System.out.print(c +"" +HM.get(c));
+		//System.out.print(HM.get(c));
 		
 	}
 	

@@ -11,7 +11,9 @@ public class palindromeumber {
 	int x = sc.nextInt();
 	
 	
-	System.out.println("Plaindrome "   +   palindromenume(x));
+	//System.out.println("Plaindrome "   +   palindromenume(x));
+	
+	System.out.println("Plaindrome "   +   palindromemethod2(x));
 	
 		
 	}
@@ -24,5 +26,27 @@ public class palindromeumber {
 		return s.toString().equals(String.valueOf(x));
 		
 	}
+	
+	static boolean palindromemethod2(int x) {
+		
+		if(x == 0) return true;
+
+        if(x < 0 || x % 10 == 0) return false;
+        int rem;
+		
+		long rev=0;
+		
+		while(x > rev) {
+		rem = x % 10;
+		rev = (rev*10)+rem;
+		x=x/10;
+		}
+		System.out.print(rev);
+		if(x == rev || x == rev / 10){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 }
