@@ -1,8 +1,10 @@
 package learning;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.Map.Entry;
 
 public class LongestSubstringNonrepeated {
 
@@ -37,7 +39,28 @@ public class LongestSubstringNonrepeated {
 				charset.add(s.charAt(right));
 			}
 		}
-		return maxlen;
+		return maxlen;	
+	}
+	
+	static void substriNonrepeat(String s) {
+		int maxlen=0;
+		int left=0,right=0;
+		
+		Set<Character> charset = new HashSet<>();
+		
+		for(right=0; right<s.length();right++) {
+			if(!charset.contains(s.charAt(right))) {
+				charset.add(s.charAt(right));
+				maxlen= Math.max(maxlen, right-left+1);
+			}else {
+				while(charset.contains(s.charAt(right))) {
+					charset.remove(s.charAt(left));
+					left++;
+					
+				}
+				charset.add(s.charAt(right));
+			}
+		}
 		
 	}
 
